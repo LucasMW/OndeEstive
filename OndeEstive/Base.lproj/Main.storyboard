@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OndeEstive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BTE-yh-6BP">
+                                <rect key="frame" x="0.0" y="229" width="414" height="448"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onde Estive?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGr-ai-1bf">
+                                <rect key="frame" x="107.5" y="68" width="199" height="42.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-iK-ADM">
+                                <rect key="frame" x="157.5" y="763" width="99" height="30"/>
+                                <state key="normal" title="Carregar Tudo"/>
+                                <connections>
+                                    <action selector="loadEverything:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ug6-Fu-gC9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BTE-yh-6BP" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="0n0-Vd-pvD"/>
+                            <constraint firstItem="BTE-yh-6BP" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="DLL-hI-AAd"/>
+                            <constraint firstItem="BGr-ai-1bf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="G4S-Cj-tv3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Eir-iK-ADM" secondAttribute="bottom" constant="69" id="OU6-Da-3n5"/>
+                            <constraint firstItem="Eir-iK-ADM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YUC-mc-Tcw"/>
+                            <constraint firstItem="BTE-yh-6BP" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="me4-Rv-rfR"/>
+                            <constraint firstItem="BTE-yh-6BP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nVW-1f-OQz"/>
+                            <constraint firstItem="BGr-ai-1bf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="rgm-WI-P1S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="BTE-yh-6BP" id="Dw9-Ck-dCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+</document>
