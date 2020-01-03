@@ -12,7 +12,7 @@ import CoreLocation
 import NVActivityIndicatorView
 
 class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +23,32 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
     @IBAction func loadEverything(_ sender: Any) {
         self.startAnimating(nil, message: "Loading", messageFont:  nil, type: .circleStrokeSpin, color: .none, padding: .none, displayTimeThreshold: .none, minimumDisplayTime: .none, backgroundColor: .none, textColor: .none, fadeInAnimation: .none)
         DispatchQueue.init(label: "xxx").async {
-             self.loadAll()
+            self.loadAll()
         }
-       
-               
+        
+        
     }
     override func didReceiveMemoryWarning() {
         print("BAD SIGN")
     }
     override func viewDidAppear(_ animated: Bool) {
-       
+        
     }
     func addAnnotations(coords: [CLLocation]){
         for coord in coords{
             let CLLCoordType = CLLocationCoordinate2D(
                 latitude: coord.coordinate.latitude,
                 longitude: coord.coordinate.longitude);
+            CLGeocoder().reverseGeocodeLocation(coord) { (placemarks, error) in
+                print(placemarks)
+                print(error)
+            }
             let anno = MKPointAnnotation();
+            anno.title = "\(coord.coordinate)"
             anno.coordinate = CLLCoordType;
             mapView.addAnnotation(anno);
         }
-
+        
     }
     func loadAll() {
         let photos = fetchPhotoFromLibrary()
@@ -53,9 +58,9 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
             self.stopAnimating()
         }
         
-//        for photo in photos {
-//
-//        }
+        //        for photo in photos {
+        //
+        //        }
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
@@ -68,11 +73,11 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
                 pinView = dequeuedView;
             }else{
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdent);
-
+                
             }
             return pinView;
         }
     }
-
+    
 }
 
