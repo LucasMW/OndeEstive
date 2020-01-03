@@ -21,7 +21,7 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
         // Do any additional setup after loading the view.
     }
     @IBAction func loadEverything(_ sender: Any) {
-        self.startAnimating(nil, message: "Loading", messageFont:  nil, type: .circleStrokeSpin, color: .none, padding: .none, displayTimeThreshold: .none, minimumDisplayTime: .none, backgroundColor: .none, textColor: .none, fadeInAnimation: .none)
+        self.startAnimating(nil, message: "Carregando", messageFont:  nil, type: .circleStrokeSpin, color: .none, padding: .none, displayTimeThreshold: .none, minimumDisplayTime: .none, backgroundColor: .none, textColor: .none, fadeInAnimation: .none)
         DispatchQueue.init(label: "xxx").async {
             self.loadAll()
         }
