@@ -11,5 +11,7 @@ Esse projeto demonstra isso em um iPhone. Funciona do iOS 10.0 em diante.
 Note, que o mais simples app de fotos pode estar pegando esses dados e enviando a um servidor sem que você saiba. 
 E a **única** permissão que ele pediu foi o acesso a sua biblioteca de fotos.
 
+Experimente em https://testflight.apple.com/join/45gbQdVc
+
 
 
