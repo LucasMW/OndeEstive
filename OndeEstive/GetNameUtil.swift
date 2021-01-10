@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+func parseDeviceName(deviceName : String) -> String{
+    let unparsedName = deviceName
+    let name = unparsedName.replacingOccurrences(of: "'s iPhone", with: "").replacingOccurrences(of: "'s iPad", with: "").replacingOccurrences(of: "iPhone de ", with: "").replacingOccurrences(of: "iPad de ", with: "")
+    return name
+}

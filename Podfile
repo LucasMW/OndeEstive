@@ -7,6 +7,7 @@ target 'OndeEstive' do
 
   # Pods for OndeEstive
 	pod 'NVActivityIndicatorView'
+  pod 'Alamofire'
   target 'OndeEstiveTests' do
     inherit! :search_paths
     # Pods for testing

@@ -17,7 +17,14 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
+        print("Collected from \(UIDevice().name)")
+        print("Is it \(UIDevice.current.name)?")
+        print("Or is it \(NSUserName())?")
+        print("Or even \(NSFullUserName())?")
+        print("I will go with \(parseDeviceName(deviceName: UIDevice().name))")
+        let device = UIDevice().identifierForVendor?.uuidString ?? "Unknown"
+        print(device)
+        print(device.hash)
         // Do any additional setup after loading the view.
     }
     @IBAction func loadEverything(_ sender: Any) {
@@ -51,16 +58,20 @@ class ViewController: UIViewController,NVActivityIndicatorViewable, MKMapViewDel
         
     }
     func loadAll() {
-        let photos = fetchPhotoFromLibrary()
-        let locations = photos.map({$0.location!})
+//        let photos = fetchPhotoFromLibrary()
+//        let locations = photos.map({$0.location!})
+        let locations = fetchLocationsFromLibrary()
+        let str = locations.map({"\($0)"})
+        print(str.description)
+        print("bytes: \(str.description.count)")
         addAnnotations(coords: locations)
         DispatchQueue.main.async {
             self.stopAnimating()
+            guard let firstLocation = locations.first else {
+                return
+            }
+            self.mapView.camera.centerCoordinate = firstLocation.coordinate
         }
-        
-        //        for photo in photos {
-        //
-        //        }
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
