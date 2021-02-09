@@ -24,7 +24,7 @@ In fact, it is possible to obtain the frequently visited places, the places wher
 This project demonstrates this on an iPhone. It works from iOS 10.0 onwards.
 
 Note, that the simplest photo app may be taking this data and sending it to a server without you knowing it. 
-And the **unique** permission he asked for was access to his photo library.
+And the **only** permission he asked for was access to his photo library.
 
 Try it at https://testflight.apple.com/join/45gbQdVc
 
